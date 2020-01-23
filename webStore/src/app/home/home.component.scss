@@ -1,0 +1,15 @@
+.homeBg{
+  height: 94vh;
+  background-image: url("../images/homeApple.jpg");
+  background-size: cover;
+}
+
+.homeHeight{
+  height: 94vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
