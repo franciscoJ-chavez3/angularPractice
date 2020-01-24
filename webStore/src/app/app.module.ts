@@ -11,6 +11,8 @@ import { ContactComponent } from './contact/contact.component';
 import { SignComponent } from './sign/sign.component';
 import { CreateComponent } from './create/create.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { ShopComponent } from './shop/shop.component';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { CheckoutComponent } from './checkout/checkout.component';
     ContactComponent,
     SignComponent,
     CreateComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    ShopComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,

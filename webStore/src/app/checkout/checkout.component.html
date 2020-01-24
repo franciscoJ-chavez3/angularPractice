@@ -1,32 +1,99 @@
-<ngb-accordion [closeOthers]="true" activeIds="static-1">
-    <ngb-panel id="static-1" title="Shipping Address">
-      <ng-template ngbPanelContent>
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
-        aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-        sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
-        craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-        labore sustainable VHS.
-      </ng-template>
-    </ngb-panel>
-    <ngb-panel id="static-2" title="Shipping Method">
-      <ng-template ngbPanelContent>
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
-        aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-        sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
-        craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-        labore sustainable VHS.
-      </ng-template>
-    </ngb-panel>
-    <ngb-panel id="static-3" title="Payment">
-      <ng-template ngbPanelContent>
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
-        aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-        sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
-        craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-        labore sustainable VHS.
-      </ng-template>
-    </ngb-panel>
-  </ngb-accordion>
+<div class="container-fluid">
+  <div class="row mt-5">
+    <div class="col-8">
+      <ngb-accordion [closeOthers]="true" activeIds="static-1">
+        <ngb-panel id="static-1" title="Shipping Address">
+          <ng-template ngbPanelContent>
+            <div class="d-flex flex-column">
+              <input type="text" class="form-control-lg mb-2" placeholder="First Name">
+              <input type="text" class="form-control-lg mb-2" placeholder="Last Name">
+              <input type="text" class="form-control-lg mb-2" placeholder="Street Address">
+              <input type="text" class="form-control-lg mb-2" placeholder="Apt, suite, etc.">
+
+              <div class="d-flex">
+                <input type="text" class="form-control-lg mb-2" placeholder="City">
+                <input type="text" class="form-control-lg mb-2" placeholder="State">
+              </div>
+
+
+              <input type="text" class="form-control-lg mb-2" placeholder="Zip Code">
+              <input type="text" class="form-control-lg" placeholder="Phone Number">
+            </div>
+
+
+          </ng-template>
+        </ngb-panel>
+        <ngb-panel id="static-2" title="Shipping Method">
+          <ng-template ngbPanelContent>
+            <div class="d-flex justify-content-around">
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Standard Shipping</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">$5.99</h6>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                  <a href="" class="btn btn-danger">Select</a>
+                </div>
+              </div>
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Priority Shipping</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">$11.99</h6>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                  <a href="" class="btn btn-danger">Select</a>
+                </div>
+              </div>
+            </div>
+
+          </ng-template>
+        </ngb-panel>
+        <ngb-panel id="static-3" title="Payment">
+          <ng-template ngbPanelContent>
+            <div class="d-flex flex-column">
+              <input type="text" class="form-control-lg mb-2" placeholder="Card Number">
+              <input type="text" class="form-control-lg mb-2" placeholder="Card Holder">
+            </div>
+
+            <div class="d-flex">
+              <input type="text" class="form-control-lg" placeholder="CVV">
+              <input type="text" class="form-control-lg" placeholder="Month">
+              <input type="text" class="form-control-lg" placeholder="Year">
+              <button class="btn btn-danger ml-3">Place Order</button>
+            </div>
+
+          </ng-template>
+        </ngb-panel>
+      </ngb-accordion>
+    </div>
+    <div class="col-4">
+      <div class="card" style="width: 18rem;">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Order Summary</li>
+          <div class="list-group-item d-flex justify-content-between">
+            <p class="card-text">Item Name(s)</p>
+            <p class="card-text">$0.00</p>
+          </div>
+          <div class="list-group-item">
+            <div class="d-flex justify-content-between">
+              <p class="card-text">Subtotal</p>
+              <p class="card-text">$0.00</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="card-text">Shipping</p>
+              <p class="card-text">$0.00</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="card-text">Taxes</p>
+              <p class="card-text">$0.00</p>
+            </div>
+          </div>
+          <div class="list-group-item d-flex justify-content-between">
+            <p class="card-text">Total</p>
+            <p class="card-text">$0.00</p>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
