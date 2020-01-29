@@ -1,38 +1,12 @@
 <div class="container">
   <h1 class="text-center my-5">How 'bout them apples?</h1>
   <div class="row">
-    <div class="col-4">
-      <div class="card" style="width: 18rem;">
-        <img src="../../assets/images/fujiApple.jpg" class="card-img-top" alt="...">
+    <div class="col" *ngFor="let product of productsInShop">
+      <div class="card my-4" style="width: 18rem;">
+        <img src={{product.productImgURL}} class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title text-center">Imperial Fuji</h5>
-          <p class="card-text text-center">$10.00</p>
-          <div class="d-flex justify-content-between">
-            <a href="#" class="btn btn-danger">Add to Cart</a>
-            <a href="#" class="btn btn-danger">Learn More</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-4">
-      <div class="card" style="width: 18rem;">
-        <img src="../../assets/images/grannySmithApples.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title text-center">Granny Smith</h5>
-          <p class="card-text text-center">$10.00</p>
-          <div class="d-flex justify-content-between">
-            <a href="#" class="btn btn-danger">Add to Cart</a>
-            <a href="#" class="btn btn-danger">Learn More</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-4">
-      <div class="card" style="width: 18rem;">
-        <img src="../../assets/images/honeycrispApple.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title text-center">Honeycrisp</h5>
-          <p class="card-text text-center">$10.00</p>
+          <h5 class="card-title text-center">{{product.productName}}</h5>
+          <p class="card-text text-center">${{product.productPrice}}</p>
           <div class="d-flex justify-content-between">
             <a href="#" class="btn btn-danger">Add to Cart</a>
             <a href="#" class="btn btn-danger">Learn More</a>

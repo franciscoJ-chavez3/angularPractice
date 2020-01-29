@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IProduct } from '../interfaces/product';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-shop',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShopComponent implements OnInit {
 
-  constructor() { }
+  //declare value to store productInfo
+  productsInShop: IProduct[];
+
+  constructor(private dS: DataService) { }
 
   ngOnInit() {
+    //set productsInShop to data in DataService
+    this.productsInShop = this.dS.getApples();
   }
 
 }
