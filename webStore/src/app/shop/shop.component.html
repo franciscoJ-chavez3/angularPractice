@@ -8,8 +8,8 @@
           <h5 class="card-title text-center">{{product.productName}}</h5>
           <p class="card-text text-center">${{product.productPrice}}</p>
           <div class="d-flex justify-content-between">
-            <a href="#" class="btn btn-danger">Add to Cart</a>
-            <a href="#" class="btn btn-danger">Learn More</a>
+            <a (click)="addToCart(product)" class="text-white btn btn-danger">Add to Cart</a>
+            <a routerLink="/{{product.productName}}/{{product.productID}}" class="btn btn-danger">Learn More</a>
           </div>
         </div>
       </div>

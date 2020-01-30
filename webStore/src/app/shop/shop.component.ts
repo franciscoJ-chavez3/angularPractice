@@ -19,4 +19,9 @@ export class ShopComponent implements OnInit {
     this.productsInShop = this.dS.getApples();
   }
 
+  //create function for click event add to cart btn
+  addToCart(apple: IProduct) {
+    this.dS.addProductsToCart(apple);
+  }
+
 }

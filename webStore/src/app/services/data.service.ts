@@ -1,10 +1,16 @@
 import { Injectable } from '@angular/core';
 import { IProduct } from '../interfaces/product';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
+
+  //empty array of type IProduct
+  productsInCart: IProduct[] = [];
+
+  //store products
   products: IProduct[] = [
     {
       productID: '101',
@@ -71,5 +77,45 @@ export class DataService {
 
   getApples(): IProduct[] {
     return this.products;
+  }
+
+  getApple(str: string): Observable<IProduct> {
+    return of(this.products.find(x => x.productID === str));
+  }
+
+  //for add to cart btn
+  addProductsToCart(apple: IProduct) {
+    //push apple into cart
+    this.productsInCart.push(apple);
+    //console log
+    console.log(this.productsInCart);
+  }
+
+  //for cart component
+  getProductsInCart(): IProduct[] {
+    //return cart
+    return this.productsInCart;
+  }
+
+  //for emptying cart in cart component
+  emptyCart() {
+    //set length of array to zero
+    this.productsInCart.length = 0;
+  }
+
+  //for removeBtn in cart
+  removeProductInCart(apple: IProduct) {
+    //find index
+    const index = this.findIndexOfProduct(apple);
+
+    //splice array: productsInCart
+    this.productsInCart.splice(index, 1);
+
+  }
+
+  //for removeBtn in cart
+  findIndexOfProduct(apple: IProduct): number {
+    //use indexOf to find index of apple
+    return this.productsInCart.indexOf(apple);
   }
 }
