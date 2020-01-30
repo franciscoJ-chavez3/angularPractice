@@ -1,10 +1,24 @@
-<div class="row">
-  <div class="col">
-    <div ngbDropdown class="d-inline-block">
-      <button class="btn btn-outline-light" id="dropdownBasic1" ngbDropdownToggle>Profile</button>
-      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-        <button ngbDropdownItem routerLink="signIn">Sign In</button>
-        <button ngbDropdownItem routerLink="create">Create Account</button>
-      </div>
+<ng-container *ngIf="inOut; then logIn else logOut">
+  
+</ng-container>
+
+<ng-template #logIn>
+  <div ngbDropdown class="d-inline-block">
+    <button class="btn btn-outline-light" id="dropdownSignIn" ngbDropdownToggle>Profile</button>
+    <div ngbDropdownMenu aria-labelledby="dropdownSignIn">
+      <button ngbDropdownItem routerLink="signIn">Sign In</button>
+      <button ngbDropdownItem routerLink="create">Create Account</button>
+      <button ngbDropdownItem (click)="toggleInOut()">Toggle</button>
     </div>
   </div>
+</ng-template>
+
+<ng-template #logOut>
+  <div ngbDropdown class="d-inline-block">
+    <button class="btn btn-outline-light" id="dropdownLogOut" ngbDropdownToggle>User Name</button>
+    <div ngbDropdownMenu aria-labelledby="dropdownLogOut">
+      <button ngbDropdownItem routerLink="/profile">Profile</button>
+      <button ngbDropdownItem (click)="toggleInOut()">Logout</button>
+    </div>
+  </div>
+</ng-template>

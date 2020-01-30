@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { SignComponent } from './sign/sign.component';
 import { CreateComponent } from './create/create.component';
 import { ProductComponent } from './product/product.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 const routes: Routes = [
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'signIn', component: SignComponent },
   { path: 'create', component: CreateComponent },
-  { path: ':nameOfProduct/:id', component: ProductComponent }
+  { path: ':nameOfProduct/:id', component: ProductComponent },
+  { path: 'profile', component: ProfileComponent }
 ];
 
 @NgModule({
