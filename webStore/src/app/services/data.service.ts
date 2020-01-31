@@ -1,11 +1,23 @@
 import { Injectable } from '@angular/core';
 import { IProduct } from '../interfaces/product';
-import { Observable, of } from 'rxjs';
+import { Observable, of, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
+
+  //array of items in cart
+  cartItems: IProduct[] = [];
+  public $cartItems = new BehaviorSubject<IProduct[]>(this.cartItems);
+
+  //total number of unique items in cart
+  cartTotal = 0;
+  $cartTotal = new BehaviorSubject<number>(this.cartTotal);
+
+  //quantity of each item in cart
+  cartQty = 0;
+  $cartQty = new BehaviorSubject<number>(this.cartQty);
 
   //empty array of type IProduct
   productsInCart: IProduct[] = [];
@@ -16,61 +28,71 @@ export class DataService {
       productID: '101',
       productName: 'Cosmic Crisp Apples',
       productPrice: 22,
-      productImgURL: '../../assets/images/cosmicCrispApple.jpg'
+      productImgURL: '../../assets/images/cosmic2.jpg',
+      productQty: 0
     },
     {
       productID: '102',
       productName: 'Imperial Fuji Apples',
       productPrice: 22,
-      productImgURL: '../../assets/images/fujiApple.jpg'
+      productImgURL: '../../assets/images/fujiApple.jpg',
+      productQty: 0
     },
     {
       productID: '103',
       productName: 'Golden Supreme Apples',
       productPrice: 22,
-      productImgURL: '../../assets/images/goldenSupremeApple.jpg'
+      productImgURL: '../../assets/images/golden2.jpg',
+      productQty: 0
     },
     {
       productID: '104',
       productName: 'Granny Smith Apples',
       productPrice: 22,
-      productImgURL: '../../assets/images/grannySmithApples.jpg'
+      productImgURL: '../../assets/images/granny2.jpg',
+      productQty: 0
     },
     {
       productID: '105',
       productName: 'Honeycrisp Apples',
       productPrice: 22,
-      productImgURL: '../../assets/images/honeycrispApple.jpg'
+      productImgURL: '../../assets/images/honey2.jpg',
+      productQty: 0
     },
     {
       productID: '106',
       productName: 'Jona Gold Apples',
       productPrice: 22,
-      productImgURL: '../../assets/images/jonaGoldApple.jpg'
+      productImgURL: '../../assets/images/jona2.jpg',
+      productQty: 0
     },
     {
       productID: '107',
       productName: 'Newtown Pippin Apples',
       productPrice: 22,
-      productImgURL: '../../assets/images/newTownPippinApple.jpg'
+      productImgURL: '../../assets/images/newtown2.jpg',
+      productQty: 0
     },
     {
       productID: '108',
       productName: 'Pink Lady Apples',
       productPrice: 22,
-      productImgURL: '../../assets/images/pinkLadyApple.jpg'
+      productImgURL: '../../assets/images/pink2.jpg',
+      productQty: 0
     },
     {
       productID: '109',
       productName: 'Royal Gala Apples',
       productPrice: 22,
-      productImgURL: '../../assets/images/royalGalaApple.jpg'
+      productImgURL: '../../assets/images/royal2.jpg',
+      productQty: 0
     },
     {
       productID: '110',
       productName: 'Royal Red Apples',
       productPrice: 22,
-      productImgURL: '../../assets/images/royalRedApple.jpg'
+      productImgURL: '../../assets/images/red2.jpg',
+      productQty: 0
     }
   ];
   constructor() { }
@@ -83,39 +105,56 @@ export class DataService {
     return of(this.products.find(x => x.productID === str));
   }
 
-  //for add to cart btn
-  addProductsToCart(apple: IProduct) {
-    //push apple into cart
-    this.productsInCart.push(apple);
+  addProductToCart(product: IProduct) {
+    //check if product exists in cartItems
+    let cartItem = this.cartItems.find(x => x.productID === product.productID);
+
+    if (cartItem) {
+      //if item already exists in cart, increment quantity of product
+      cartItem.productQty++;
+    } else {
+      //if item doesn't exist in cart, increment to 1 and push product into cart
+      product.productQty = 1;
+      //push item into cartItems
+      this.cartItems.push(product);
+    }
+
     //console log
-    console.log(this.productsInCart);
+    console.log(this.cartItems);
+
+    //behavior mathes reference
+    this.$cartItems.next(this.cartItems);
+
+    //update price ~ convert string to number
+    this.cartTotal += +product.productPrice;
+
+    //behavior match ref
+    this.$cartTotal.next(this.cartTotal);
+
+    //behavior match ref
+    this.cartQty++;
+    this.$cartQty.next(this.cartQty);
   }
 
-  //for cart component
-  getProductsInCart(): IProduct[] {
-    //return cart
-    return this.productsInCart;
+  removeItemFromCart(cartItem: IProduct, index: number) {
+    //splice cartItems
+    this.cartItems.splice(index, 1);
+
+    //update cartTotal using totalPrice to adjust changes
+    const totalPrice = cartItem.productQty * +cartItem.productPrice;
+    this.cartTotal -= totalPrice;
+
+    //update quantity of products in cart
+    this.cartQty -= cartItem.productQty;
+
+    //apply changes to subject counterparts
+    this.broadcastSubjects();
   }
 
-  //for emptying cart in cart component
-  emptyCart() {
-    //set length of array to zero
-    this.productsInCart.length = 0;
-  }
-
-  //for removeBtn in cart
-  removeProductInCart(apple: IProduct) {
-    //find index
-    const index = this.findIndexOfProduct(apple);
-
-    //splice array: productsInCart
-    this.productsInCart.splice(index, 1);
-
-  }
-
-  //for removeBtn in cart
-  findIndexOfProduct(apple: IProduct): number {
-    //use indexOf to find index of apple
-    return this.productsInCart.indexOf(apple);
+  broadcastSubjects() {
+    //update behavior ref
+    this.$cartItems.next(this.cartItems);
+    this.$cartTotal.next(this.cartTotal);
+    this.$cartQty.next(this.cartQty);
   }
 }

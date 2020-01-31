@@ -20,8 +20,8 @@ export class ShopComponent implements OnInit {
   }
 
   //create function for click event add to cart btn
-  addToCart(apple: IProduct) {
-    this.dS.addProductsToCart(apple);
+  addToCart(product: IProduct) {
+    this.dS.addProductToCart(product);
   }
 
 }
