@@ -8,7 +8,9 @@ import { UserService } from '../services/user.service';
 })
 export class SignComponent implements OnInit {
 
-  constructor(private us: UserService) { }
+  constructor(private us: UserService) {
+    us.getUsersFromStorage();
+  }
 
   ngOnInit() {
   }
