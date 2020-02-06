@@ -126,6 +126,7 @@ export class DataService {
     this.$cartItems.next(this.cartItems);
 
     //update price ~ convert string to number
+    //delete later, conversion not necessary
     this.cartTotal += +product.productPrice;
 
     //behavior match ref
