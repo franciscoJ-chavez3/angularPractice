@@ -1,2 +1,3 @@
 added login functionality to sign component & create component
 still need: styling for product html and order/update profile component
+2/5/2020
