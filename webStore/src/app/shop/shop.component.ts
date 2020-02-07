@@ -12,6 +12,7 @@ export class ShopComponent implements OnInit {
   //declare value to store productInfo
   productsInShop: IProduct[];
 
+  //for ngFor = let product of productsInShop
   constructor(private dS: DataService) { }
 
   ngOnInit() {

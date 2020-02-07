@@ -8,6 +8,9 @@ import { DataService } from '../services/data.service';
 })
 export class HeaderComponent implements OnInit {
 
+  //for navbar
+  public isMenuCollapsed = true;
+  //for cart
   cartCount = 0;
 
   constructor(private dataService: DataService) { }

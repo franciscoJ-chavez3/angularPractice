@@ -20,6 +20,11 @@ export class ProductComponent implements OnInit {
     this.getProduct();
   }
 
+  //create function for click event add to cart btn
+  addToCart(product: IProduct) {
+    this.ds.addProductToCart(product);
+  }
+
   getProduct() {
 
     //grab id for path

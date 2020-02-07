@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
-    <div class="col-6 mt-5">
+    <div class="col mt-5">
       <img src="{{product.productImgURL}}" alt="Apple">
     </div>
-    <div class="col-6 mt-5">
+    <div class="col mt-5">
       <div class="mt-5">
         <h2>{{product.productName}}</h2>
         <h4>${{product.productPrice}}</h4>
@@ -13,7 +13,7 @@
           their crisp, sweet, and juicy character. We like to eat them chilled, letting the sugary sweetness burst to
           life on the tongue. We partner with other local, organic producers to bring you the best apples in California.
         </p>
-        <button class="btn btn-danger">Add to Cart</button>
+        <button class="btn btn-danger" (click)="addToCart(product)">Add to Cart</button>
       </div>
     </div>
   </div>
