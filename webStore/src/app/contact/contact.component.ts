@@ -12,4 +12,8 @@ export class ContactComponent implements OnInit {
   ngOnInit() {
   }
 
+  contactMsg(first: string, last: string, email: string, subject: string, message:string) {
+    alert('Thank you for your feedback ' + first + ' ' + last + '. We will respond to your query as soon as possible.');
+  }
+
 }

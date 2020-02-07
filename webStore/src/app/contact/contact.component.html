@@ -8,26 +8,26 @@
                 <form>
                     <div class="form-group">
                         <label>First Name</label>
-                        <input type="email" class="form-control">
+                        <input #firstName type="text" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Last Name</label>
-                        <input type="text" class="form-control">
+                        <input #lastName type="text" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="text" class="form-control">
+                        <input #email type="email" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Subject</label>
-                        <input type="text" class="form-control">
+                        <input #subject type="text" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="#">Message</label>
+                        <label #message for="#">Message</label>
                         <textarea class="form-control" rows="3"></textarea>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <button type="submit" class="btn btn-danger">Submit</button>
+                        <button type="submit" class="btn btn-danger" (click)="contactMsg(firstName.value, lastName.value, email.value, subject.value, message.value)">Submit</button>
                     </div>
 
                 </form>

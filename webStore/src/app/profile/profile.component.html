@@ -1,29 +1,60 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-4 d-flex flex-column justify-content-center" style="height: 50vh">
+    <div class="col d-flex flex-column justify-content-center tabStyle">
       <div class="list-group">
-        <a href="#" class="list-group-item list-group-item-action active">Profile</a>
-        <a href="#" class="list-group-item list-group-item-action">Orders</a>
+        <a (click)="profileTabClick()" class="list-group-item list-group-item-action">Profile</a>
+        <a (click)="orderTabClick()" class="list-group-item list-group-item-action">Orders</a>
       </div>
     </div>
 
-    <div class="col-8">
+    <div class="col d-flex flex-column justify-content-end">
 
-      <div class="row">
-        <div class="col-3"></div>
-        <div class="col-6 d-flex flex-column justify-content-center" style="height:100vh">
-          <div class="form-group d-flex flex-column">
-            <input type="text" class="form-control-lg my-3" placeholder="First Name">
-            <input type="text" class="form-control-lg my-3" placeholder="Last Name">
-            <input type="text" class="form-control-lg my-3" placeholder="Email">
-            <input type="text" class="form-control-lg my-3" placeholder="Password">
+      <ng-container *ngIf="tabs; then profileTab else orderTab ">
+  
+      </ng-container>
+
+      <ng-template #profileTab>
+          <div>
+            <div class="d-flex justify-content-center" class="form-group d-flex flex-column">
+              <div class="d-flex justify-content-center mt-5">
+                <img class="mt-5" src="../../assets/images/avatar.png" alt="avatar">
+              </div>
+              <input #first type="text" class="form-control-lg my-3" placeholder="First Name">
+              <input #last type="text" class="form-control-lg my-3" placeholder="Last Name">
+              <input #email type="text" class="form-control-lg my-3" placeholder="Email">
+              <input #password type="text" class="form-control-lg my-3" placeholder="Password">
+            </div>
+            <div class="d-flex justify-content-center">
+              <button (click)="updateProfile(first, last, email, password)" class="btn-danger">Update</button>
+            </div>
           </div>
-          <button class="btn-danger">Update</button>
-        </div>
-        <div class="col-3"></div>
-      </div>
+      </ng-template>
 
-
+      <ng-template #orderTab>
+        <div>
+          <div class="card">
+            <div class="card-header">
+              Orders
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <h5 class="card-title">Items</h5>
+                <h5 class="card-title">Quantity</h5>
+                <h5 class="card-title">Price</h5>
+              </div>
+              <div class="d-flex justify-content-between">
+                <p class="card-text">introplate orderItems</p>
+                <p class="card-text">introplate orderItemsQty</p>
+                <p class="card-text">introplate orderItemsPrices</p>
+              </div>
+              <div class="d-flex justify-content-end">
+                <h5 class="card-title mr-2">Total</h5>
+                <p class="card-text">introplate orderTotal</p>
+              </div>
+            </div>
+          </div>
+        </div> 
+      </ng-template>
 
     </div>
   </div>

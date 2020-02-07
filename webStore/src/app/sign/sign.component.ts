@@ -23,6 +23,8 @@ export class SignComponent implements OnInit {
       //check if email & password exists in service
       if (this.us.checkUserEmail(email)) {
         alert('Your email checks out, you are now signed in');
+      } else {
+        alert('Create an account to sign in')
       }
     }
   }

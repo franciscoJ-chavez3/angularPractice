@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { UserService } from '../services/user.service';
-import { IUser } from '../interfaces/user';
 
 @Component({
   selector: 'app-create',
@@ -28,6 +27,7 @@ export class CreateComponent implements OnInit {
       } else {
         //pass new user info into service
         this.us.addNewUser(firstName, lastName, email, password);
+        alert('You have created an account');
       }
     }
   }
