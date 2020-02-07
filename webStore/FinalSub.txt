@@ -1,0 +1,10 @@
+fixed navbar - responsive using ng bootstrap collapse (order component)
+checkout summary - intrepolation of information in order summary (checkout component)
+profile (profile component) - added click functions to profile/order tabs with ngIf, 
+added avatar icon above profile input fields,
+added click function to update btn => alert,
+added table to order template in profile component of *ngIf
+
+product component - add to cart function added to btn
+styled about component - font size & times new roman
+cart component - added path to checkout btn in cart page
