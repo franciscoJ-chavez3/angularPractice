@@ -8,3 +8,16 @@ added table to order template in profile component of *ngIf
 product component - add to cart function added to btn
 styled about component - font size & times new roman
 cart component - added path to checkout btn in cart page
+
+added new img to about component
+pushed contact field values into contactObj
+created contact service
+added lorem ipsum to product component
+changded prices of apples in data service
+
+components:
+about, cart, checkout, contact, create, header, home, product, profile, profile-btn, shop, sign,
+
+interfaces - in interfaces folder: contact.ts, product.ts, user.ts
+
+services - in services folder: contact.service, data.service, user.service
