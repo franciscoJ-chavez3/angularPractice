@@ -27,21 +27,21 @@ export class DataService {
     {
       productID: '101',
       productName: 'Cosmic Crisp Apples',
-      productPrice: 22,
+      productPrice: 19,
       productImgURL: '../../assets/images/cosmic2.jpg',
       productQty: 0
     },
     {
       productID: '102',
       productName: 'Imperial Fuji Apples',
-      productPrice: 22,
+      productPrice: 20,
       productImgURL: '../../assets/images/fujiApple.jpg',
       productQty: 0
     },
     {
       productID: '103',
       productName: 'Golden Supreme Apples',
-      productPrice: 22,
+      productPrice: 21,
       productImgURL: '../../assets/images/golden2.jpg',
       productQty: 0
     },
@@ -55,42 +55,42 @@ export class DataService {
     {
       productID: '105',
       productName: 'Honeycrisp Apples',
-      productPrice: 22,
+      productPrice: 23,
       productImgURL: '../../assets/images/honey2.jpg',
       productQty: 0
     },
     {
       productID: '106',
       productName: 'Jona Gold Apples',
-      productPrice: 22,
+      productPrice: 24,
       productImgURL: '../../assets/images/jona2.jpg',
       productQty: 0
     },
     {
       productID: '107',
       productName: 'Newtown Pippin Apples',
-      productPrice: 22,
+      productPrice: 25,
       productImgURL: '../../assets/images/newtown2.jpg',
       productQty: 0
     },
     {
       productID: '108',
       productName: 'Pink Lady Apples',
-      productPrice: 22,
+      productPrice: 26,
       productImgURL: '../../assets/images/pink2.jpg',
       productQty: 0
     },
     {
       productID: '109',
       productName: 'Royal Gala Apples',
-      productPrice: 22,
+      productPrice: 27,
       productImgURL: '../../assets/images/royal2.jpg',
       productQty: 0
     },
     {
       productID: '110',
       productName: 'Royal Red Apples',
-      productPrice: 22,
+      productPrice: 28,
       productImgURL: '../../assets/images/red2.jpg',
       productQty: 0
     }
